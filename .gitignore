@@ -1,3 +1,23 @@
+# Ignorar datasets crudos y procesados
+data/raw/frescos_gimp/
+data/raw/mascaras_gimp/
+data/processed/
+data/test/
+
+# Ignorar modelos y pesos pesados 
+models/*.pth
+models/pesos_finetuning/
+
+# Ignorar resultados que muestren las imágenes protegidas
+outputs/resultados/
+outputs/resultados_finetuning/
+outputs/visualizacion_inferencia.png
+outputs/comparativa_UnetVSFinetuning.png
+
+data/raw/colores/
+data/raw/pinturas/
+data/raw/texturas/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
