@@ -22,9 +22,9 @@ TFG/
 │   │   ├── pinturas/ [© PI] Carpeta con imágenes de frescos bien conservados (10).
 │   │   └── texturas/ [© PI] Carpeta con imágenes de texturas de fondo, por ejemplo yeso (8).
 │   ├── processed/
-│   │   ├── dataset/ [Local] Contiene imagenes de frescos y sus mascaras sinteticas realizadas con gen_data_manual.py
-│   │   │   ├── X/ [Local] Frescos con desperfectos sintéticos generados (7100).
-│   │   │   └── Y/ [Local] Máscaras correspondientes a esos frescos con desperfectos (7100).
+│   │   ├── dataset/ [© PI] Contiene imagenes de frescos y sus mascaras sinteticas realizadas con gen_data_manual.py
+│   │   │   ├── X/ [© PI] Frescos con desperfectos sintéticos generados (7100).
+│   │   │   └── Y/ [© PI] Máscaras correspondientes a esos frescos con desperfectos (7100).
 │   │   ├── dataset_validacion_final/ [© PI] Contiene imagenes de frescos reales y sus mascaras hechas con gimp para evaluar el modelo Unet.py
 │   │   │   ├── dataset_frescos_evalfinal/ [© PI] ventanas de 256x256 de frescos realizadas de frescos_gimp/ (865)
 │   │   │   └── dataset_mascaras_evalfinal/ [© PI] ventanas de 256x256 de máscaras para validación de mascaras gimp/ (865)
@@ -62,4 +62,4 @@ TFG/
         ├── inference_finetuning.py: Realiza las predicciones con los pesos_finetuning.pth sobre las imágenes de pruebas_finetuning/.
         └── comparativa_UnetVSFinetuning.py: Ejecuta la evaluación en paralelo para comparar numéricamente el rendimiento entre el modelo base y el sometido a Fine-Tuning, generando los archivos de reporte.
 
-*(Nota: Los elementos marcados con `[© PI]` no se incluyen en este repositorio público por motivos de Propiedad Intelectual de los datos originales proporcionados por los restauradores. Los elementos marcados con `[Local]` son generados por el código pero omitidos del repositorio por exceder los límites de tamaño de GitHub. La estructura de carpetas se mantiene para asegurar la reproducibilidad).*
+*(Nota: Los elementos marcados con `[© PI]` no se incluyen en este repositorio público por motivos de Propiedad Intelectual de los datos originales proporcionados por los restauradores. Los elementos marcados con `[Local]` son generados por el código pero omitidos también por Propiedad Intelectual*
