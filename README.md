@@ -9,45 +9,46 @@ Los datos originales utilizados para el entrenamiento y fine-tuning de este mode
 
 ## Archivos
 
+```text
 TFG/
 ├── .gitignore
 ├── README.md
 ├── requirements.txt
 ├── data/
 │   ├── raw/
-│   │   ├── colores/ Carpeta con imágenes de recortes de frescos de colores variados (10).
-│   │   ├── frescos_gimp/ Frescos reales con los que se miden las métricas de la prueba de validación. (8)
-│   │   ├── mascaras_gimp/ Máscaras hechas con el software GIMP de los frescos reales, usadas para la prueba. (8)
-│   │   ├── pinturas/ Carpeta con imágenes de frescos bien conservados (10).
-│   │   └── texturas/ Carpeta con imágenes de texturas de fondo, por ejemplo yeso (8).
+│   │   ├── colores/ [© PI] Carpeta con imágenes de recortes de frescos de colores variados (10).
+│   │   ├── frescos_gimp/ [© PI] Frescos reales con los que se miden las métricas de la prueba de validación. (8)
+│   │   ├── mascaras_gimp/ [© PI] Máscaras hechas con el software GIMP de los frescos reales, usadas para la prueba. (8)
+│   │   ├── pinturas/ [© PI] Carpeta con imágenes de frescos bien conservados (10).
+│   │   └── texturas/ [© PI] Carpeta con imágenes de texturas de fondo, por ejemplo yeso (8).
 │   ├── processed/
-│   │   ├── dataset/ Contiene imagenes de frescos y sus mascaras sinteticas realizadas con gen_data_manual.py
-│   │   │   ├── X/ Frescos con desperfectos sintéticos generados (7100).
-│   │   │   └── Y/ Máscaras correspondientes a esos frescos con desperfectos (7100).
-│   │   ├── dataset_validacion_final/ Contiene imagenes de frescos reales y sus mascaras hechas con gimp para evaluar el modelo Unet.py
-│   │   │   ├── dataset_frescos_evalfinal/ ventanas de 256x256 de frescos realizadas de frescos_gimp/ (865)
-│   │   │   └── dataset_mascaras_evalfinal/ ventanas de 256x256 de máscaras para validación de mascaras gimp/ (865)
-│   │   └── dataset_entrenamiento_finetuning/: Contiene dataset_frescos y dataset_mascaras con imágenes reales preparadas para la segunda fase de entrenamiento
-│   │       ├── dataset_frescos/: ventanas de 256x256 de frescos (697)
-│   │       └── dataset_mascaras/: ventanas de 256x256 de máscaras (697)
+│   │   ├── dataset/ [Local] Contiene imagenes de frescos y sus mascaras sinteticas realizadas con gen_data_manual.py
+│   │   │   ├── X/ [Local] Frescos con desperfectos sintéticos generados (7100).
+│   │   │   └── Y/ [Local] Máscaras correspondientes a esos frescos con desperfectos (7100).
+│   │   ├── dataset_validacion_final/ [© PI] Contiene imagenes de frescos reales y sus mascaras hechas con gimp para evaluar el modelo Unet.py
+│   │   │   ├── dataset_frescos_evalfinal/ [© PI] ventanas de 256x256 de frescos realizadas de frescos_gimp/ (865)
+│   │   │   └── dataset_mascaras_evalfinal/ [© PI] ventanas de 256x256 de máscaras para validación de mascaras gimp/ (865)
+│   │   └── dataset_entrenamiento_finetuning/: [© PI] Contiene dataset_frescos y dataset_mascaras con imágenes reales preparadas para la segunda fase de entrenamiento
+│   │       ├── dataset_frescos/: [© PI] ventanas de 256x256 de frescos (697)
+│   │       └── dataset_mascaras/: [© PI] ventanas de 256x256 de máscaras (697)
 │   └── test/
-│       ├── pruebas/ Ejemplos de frescos sin procesar que el modelo debe intentar restaurar (8).
-│       ├── dataset_comparacion/: imágenes reservadas para comparar objetivamente el modelo base y el modelo con fine-tuning.
-│       │   ├── validacion_frescos/: ventanas de 256x256 de frescos (3)
-│       │   └── validacion_mascaras/: ventanas de 256x256 de máscaras (3)
-│       └── pruebas_finetuning/: Ejemplos de prueba específicos que procesa el script de inferencia del modelo refinado. (1)
+│       ├── pruebas/ [© PI] Ejemplos de frescos sin procesar que el modelo debe intentar restaurar (8).
+│       ├── dataset_comparacion/: [© PI] imágenes reservadas para comparar objetivamente el modelo base y el modelo con fine-tuning.
+│       │   ├── validacion_frescos/: [© PI] ventanas de 256x256 de frescos (3)
+│       │   └── validacion_mascaras/: [© PI] ventanas de 256x256 de máscaras (3)
+│       └── pruebas_finetuning/: [© PI] Ejemplos de prueba específicos que procesa el script de inferencia del modelo refinado. (1)
 ├── models/
-│   ├── pesos.pth Archivo generado tras el entrenamiento con los pesos guardados de la red U-Net.
-│   └── pesos_finetuning: Pesos actualizados tras ejecutar la segunda fase de entrenamiento (Fine-Tuning) con imágenes reales.
+│   ├── pesos.pth [Local] Archivo generado tras el entrenamiento con los pesos guardados de la red U-Net.
+│   └── pesos_finetuning: [Local] Pesos actualizados tras ejecutar la segunda fase de entrenamiento (Fine-Tuning) con imágenes reales.
 ├── outputs/
-│   ├── resultados/ Resultados de la predicción, con las correspondientes máscaras y una imagen de solapamiento para ver lo detectado. (16)
+│   ├── resultados/ [© PI] Resultados de la predicción, con las correspondientes máscaras y una imagen de solapamiento para ver lo detectado. (16)
 │   ├── metricas_entrenamiento.png Imagen generada con las métricas de Validation loss, Dice e IoU obtenidas durante el entrenamiento.
 │   ├── resultados_evaluacion.txt Archivo de texto generado por evaluacion_modelo_real.py con los resultados numéricos finales de Dice e IoU.
-│   ├── metricas_entrenamiento_finetuning.png; Gráficas de Loss, Dice e IoU de la segunda fase de entrenamiento
-│   ├── resultados_finetuning/: Carpeta con los resultados y solapamientos generados por la inferencia del modelo refinado. (2)
-│   ├── comparativa_UnetVSFinetuning.png: Representación gráfica y visual de la comparativa de rendimiento entre la U-Net original y la versión refinada.
+│   ├── metricas_entrenamiento_finetuning.png Gráficas de Loss, Dice e IoU de la segunda fase de entrenamiento
+│   ├── resultados_finetuning/: [© PI] Carpeta con los resultados y solapamientos generados por la inferencia del modelo refinado. (2)
+│   ├── comparativa_UnetVSFinetuning.png: [© PI] Representación gráfica y visual de la comparativa de rendimiento entre la U-Net original y la versión refinada.
 │   ├── comparativa_UnetVSFinetuning.txt: Archivo generado con los resultados numéricos de comparar el desempeño de ambos modelos.
-│   └── visualizacion_inferencia.png Ejemplo generado por evaluacion_modelo_real.py más detallado a nivel de imágenes individuales para ilustrar los resultados 
+│   └── visualizacion_inferencia.png [© PI] Ejemplo generado por evaluacion_modelo_real.py más detallado a nivel de imágenes individuales para ilustrar los resultados 
 └── src/
     ├── data/
     │   ├── gen_data_manual.py Script que crea las imágenes sintéticas a partir de las carpetas de colores/, pinturas/ y texturas/.
@@ -61,5 +62,4 @@ TFG/
         ├── inference_finetuning.py: Realiza las predicciones con los pesos_finetuning.pth sobre las imágenes de pruebas_finetuning/.
         └── comparativa_UnetVSFinetuning.py: Ejecuta la evaluación en paralelo para comparar numéricamente el rendimiento entre el modelo base y el sometido a Fine-Tuning, generando los archivos de reporte.
 
-
-
+*(Nota: Los elementos marcados con `[© PI]` no se incluyen en este repositorio público por motivos de Propiedad Intelectual de los datos originales proporcionados por los restauradores. Los elementos marcados con `[Local]` son generados por el código pero omitidos del repositorio por exceder los límites de tamaño de GitHub. La estructura de carpetas se mantiene para asegurar la reproducibilidad).*
