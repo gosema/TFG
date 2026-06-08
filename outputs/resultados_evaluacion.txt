@@ -1,0 +1,5 @@
+------------------------------
+RESULTADOS FINALES EN DATOS REALES:
+   Dice Score Global: 0.8394
+   IoU Score Global:  0.7406
+------------------------------

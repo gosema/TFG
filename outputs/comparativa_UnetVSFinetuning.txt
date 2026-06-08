@@ -1,0 +1,16 @@
+========================================
+RESULTADOS REALES (IMÁGENES COMPLETAS)
+========================================
+
+--- MODELO FASE 1 (Sintético) ---
+   Dice Score: 0.9102
+   IoU Score:  0.8391
+
+--- MODELO FASE 2 (Fine-Tuning) ---
+   Dice Score: 0.8823
+   IoU Score:  0.7941
+
+--- MEJORA OBTENIDA ---
+   Mejora Dice: -2.79%
+   Mejora IoU:  -4.49%
+========================================
