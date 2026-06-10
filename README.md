@@ -4,7 +4,7 @@ Este repositorio contiene el código y los recursos asociados al Trabajo de Fin 
 **Autor:** José María Gómez Laynez.  
 **Tecnologías:** Python, PyTorch, U-Net, ResNet-18, Visión por Computador.
 
-## 📖 Descripción del Proyecto
+## Descripción del Proyecto
 
 La conservación y restauración de frescos históricos es una tarea fundamental pero que requiere un proceso manual muy meticuloso. Tradicionalmente, los restauradores deben dibujar a mano un mapa de daños (máscaras binarias) para identificar grietas, desconchones y pérdidas de material. 
 Este proyecto busca **automatizar la creación de mapas de daños mediante Inteligencia Artificial (Deep Learning)**. Para ello, se ha implementado una red neuronal convolucional (CNN) con arquitectura **U-Net** capaz de distinguir las zonas sanas del fresco (clasificadas con 0 o negro) de las zonas deterioradas (clasificadas con 1 o blanco).
